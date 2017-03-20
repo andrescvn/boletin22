@@ -11,9 +11,10 @@ import java.util.Objects;
  *
  * @author acomesanavila
  */
-public class Libro {
-    private String nome,autor;
-    private int precio,unidades;
+public class Libro implements Comparable{
+
+    private String nome, autor;
+    private int precio, unidades;
 
     public Libro() {
     }
@@ -73,19 +74,27 @@ public class Libro {
     public boolean equals(Object obj) {
         boolean aux = false;
         if (this == obj) {
-            aux= true;
+            aux = true;
         }
         if (obj == null) {
-            aux= false;
+            aux = false;
         }
         if (getClass() != obj.getClass()) {
-            aux= false;
+            aux = false;
         }
         final Libro other = (Libro) obj;
         if (!Objects.equals(this.nome, other.nome)) {
-            aux= false;
+            aux = false;
+        }
+        if (!Objects.equals(this.autor, other.autor)) {
+            aux = false;
         }
         return aux;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
